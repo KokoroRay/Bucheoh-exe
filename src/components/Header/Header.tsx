@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react';
 import styles from './Header.module.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { 
+    FaBars, 
+    FaTimes, 
+    FaHome, 
+    FaInfoCircle, 
+    FaBoxOpen, 
+    FaCog, 
+    FaNewspaper, 
+    FaEnvelope,
+    FaHeart,
+    FaStore,
+    FaLeaf
+} from 'react-icons/fa';
 import { SearchBox } from '../SearchBox';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 
@@ -55,25 +67,35 @@ export const Header = ({ logoSrc }: HeaderProps) => {
     };
 
     const navItems = [
-        { label: 'TRANG CHỦ', href: '#home' },
-        { label: 'GIỚI THIỆU', href: '#about' },
-        { label: 'SẢN PHẨM', href: '#products' },
-        { label: 'QUY TRÌNH', href: '#process' },
-        { label: 'TIN TỨC', href: '#news' },
-        { label: 'LIÊN HỆ', href: '#contact' },
+        { label: 'TRANG CHỦ', href: '#home', icon: FaHome },
+        { label: 'GIỚI THIỆU', href: '#about', icon: FaInfoCircle },
+        { label: 'SẢN PHẨM', href: '#products', icon: FaBoxOpen },
+        { label: 'NƯỚC ÉP TRÁI CÂY', href: '#fruit-juice', icon: FaLeaf },
+        { label: 'SẢN PHẨM YÊU THÍCH', href: '#favorites', icon: FaHeart },
+        { label: 'CỬA HÀNG', href: '#store', icon: FaStore },
+        { label: 'QUY TRÌNH', href: '#process', icon: FaCog },
+        { label: 'TIN TỨC', href: '#news', icon: FaNewspaper },
+        { label: 'LIÊN HỆ', href: '#contact', icon: FaEnvelope },
     ];
 
     return (
         <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
                 <div className={styles.logo}>
-                    {logoSrc && <img src={logoSrc} alt="BUCHAOH Logo" />}
+                    {logoSrc ? (
+                        <img src={logoSrc} alt="BUCHAOH Logo" />
+                    ) : (
+                        <div className={styles.logoText}>
+                            <span className={styles.logoMain}>BUCHAOH</span>
+                            <span className={styles.logoSub}>Nước Trái Cây Lên Men</span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Desktop Navigation */}
                 <nav className={styles.desktopNav}>
                     <ul className={styles.desktopNavList}>
-                        {navItems.map((item) => (
+                        {navItems.slice(0, 6).map((item) => (
                             <li key={item.label}>
                                 <a href={item.href} className={styles.navLink}>
                                     {item.label}
@@ -112,7 +134,8 @@ export const Header = ({ logoSrc }: HeaderProps) => {
                                     className={styles.navLink}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    {item.label}
+                                    <item.icon className={styles.navIcon} />
+                                    <span className={styles.navText}>{item.label}</span>
                                 </a>
                             </li>
                         ))}

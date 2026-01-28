@@ -102,13 +102,15 @@
 /* Responsive */
 @media (max-width: 968px) {
     .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Layout dạng cột cho mobile */
         gap: var(--spacing-xl);
     }
 
     .leftImage {
         position: relative;
         top: 0;
+        max-width: 100%;
+        margin: 0 auto; /* Căn giữa ảnh */
     }
 }
 
@@ -133,45 +135,57 @@
         padding-bottom: var(--spacing-lg);
     }
 
+    .container {
+        padding: 0 20px; /* Padding 20px hai bên cho toàn bộ nội dung */
+    }
+
     .grid {
         gap: 1.5rem;
     }
 
     .title {
         margin-bottom: 1rem;
-        padding: 0 10px;
-        /* Additional padding for aesthetics */
+        text-align: left; /* Căn lề trái */
     }
 
-    /* Mobile Image Styling */
+    /* Mobile Image Styling - Ảnh chai nước */
     .leftImage {
         width: 100%;
         max-width: 400px;
-        /* Limit width to maintain aspect ratio with max-height */
-        aspect-ratio: 4/3;
-        /* Tỷ lệ 4:3 */
-        max-height: 300px;
-        border-radius: 16px;
+        max-height: 300px; /* Giới hạn chiều cao */
+        border-radius: 16px; /* Bo góc 16px */
         margin: 0 auto;
-        /* Căn giữa */
+        overflow: hidden;
     }
 
     .leftImage img {
+        width: 100%;
         height: 100%;
         max-height: 300px;
         object-fit: cover;
+        border-radius: 16px;
     }
 
     /* Mobile Content Styling */
     .content {
-        padding: 0 10px;
-        /* Ensure roughly 20px total padding with container */
-        text-align: left;
+        padding: 0;
+        text-align: left; /* Căn lề trái */
     }
 
     .description {
-        text-align: left;
+        text-align: left; /* Căn lề trái */
         margin-bottom: 1.5rem;
+        line-height: 1.6; /* Cải thiện độ dễ đọc */
+    }
+
+    .highlight {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .tagline {
+        font-size: 1rem;
+        text-align: left;
     }
 }
 

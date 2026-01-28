@@ -11,21 +11,25 @@ export const Footer = () => {
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.grid}>
-                    {/* Brand Section - Giữ nguyên */}
+                    {/* Brand Section - Cập nhật text */}
                     <div className={styles.brandSection}>
                         <h3 className={styles.brandName}>BUCHAOH</h3>
                         <p className={styles.brandTagline}>Nước Trái Cây Lên Men Từ Men Vi Sinh</p>
                         <p className={styles.description}>
-                            Sản phẩm nước trái cây lên men tự nhiên với men vi sinh có lợi, mang đến giải pháp chăm sóc sức khỏe và thân thiện với môi trường.
+                            Sản phẩm nước trái cây lên men tự nhiên với men vi sinh có lợi, 
+                            mang đến giải pháp chăm sóc sức khỏe và thân thiện với môi 
+                            trường.
                         </p>
                     </div>
 
-                    {/* Quick Links - Giữ nguyên */}
+                    {/* Quick Links - Mở rộng menu */}
                     <div className={styles.linksSection}>
-                        <h4 className={styles.sectionTitle}>Liên kết nhanh</h4>
+                        <h4 className={styles.sectionTitle}>LIÊN KẾT NHANH</h4>
                         <ul className={styles.linksList}>
                             <li><a href="#products" className={styles.link}>Sản phẩm</a></li>
                             <li><a href="#about" className={styles.link}>Về chúng tôi</a></li>
+                            <li><a href="#favorites" className={styles.link}>Yêu thích</a></li>
+                            <li><a href="#store" className={styles.link}>Cửa hàng</a></li>
                             <li><a href="#blog" className={styles.link}>Blog</a></li>
                             <li><a href="#contact" className={styles.link}>Liên hệ</a></li>
                         </ul>
@@ -33,7 +37,7 @@ export const Footer = () => {
 
                     {/* Contact Info - Đã thay icon */}
                     <div className={styles.contactSection}>
-                        <h4 className={styles.sectionTitle}>Liên hệ</h4>
+                        <h4 className={styles.sectionTitle}>LIÊN HỆ</h4>
                         <ul className={styles.contactList}>
                             <li className={styles.contactItem}>
                                 <span className={styles.contactIcon}><MdLocationOn /></span>
