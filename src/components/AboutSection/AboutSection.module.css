@@ -126,3 +126,51 @@
         font-size: 1rem;
     }
 }
+
+@media (max-width: 480px) {
+    .aboutSection {
+        padding-top: 1rem;
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .grid {
+        gap: 1.5rem;
+    }
+
+    .title {
+        margin-bottom: 1rem;
+        padding: 0 10px;
+        /* Additional padding for aesthetics */
+    }
+
+    /* Mobile Image Styling */
+    .leftImage {
+        width: 100%;
+        max-width: 400px;
+        /* Limit width to maintain aspect ratio with max-height */
+        aspect-ratio: 4/3;
+        /* Tỷ lệ 4:3 */
+        max-height: 300px;
+        border-radius: 16px;
+        margin: 0 auto;
+        /* Căn giữa */
+    }
+
+    .leftImage img {
+        height: 100%;
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    /* Mobile Content Styling */
+    .content {
+        padding: 0 10px;
+        /* Ensure roughly 20px total padding with container */
+        text-align: left;
+    }
+
+    .description {
+        text-align: left;
+        margin-bottom: 1.5rem;
+    }
+}

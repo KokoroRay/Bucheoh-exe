@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import styles from './BlogSection.module.css';
+import { OptimizedImage } from '../OptimizedImage';
 
 interface BlogPost {
     id: number;
@@ -78,8 +79,8 @@ export const BlogSection = () => {
             <div className={styles.container}>
                 <h2 className={styles.sectionTitle}>BLOGS OF BUCHAOH</h2>
 
-                {/* Horizontal scroll container */}
-                <div className={styles.scrollContainer} ref={scrollContainerRef}>
+                {/* Horizontal scroll container with hidden scrollbar */}
+                <div className={`${styles.scrollContainer} no-scrollbar`} ref={scrollContainerRef}>
                     <div className={styles.blogGrid}>
                         {blogPosts.map((post, index) => (
                             <div
@@ -90,10 +91,11 @@ export const BlogSection = () => {
                                 onClick={() => handleBlogClick(index)}
                             >
                                 {post.imageSrc ? (
-                                    <img
+                                    <OptimizedImage
                                         src={post.imageSrc}
                                         alt={post.title}
                                         className={styles.blogImage}
+                                        aspectRatio="16/9"
                                     />
                                 ) : (
                                     <div className={styles.blogPlaceholder}>

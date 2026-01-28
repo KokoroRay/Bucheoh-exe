@@ -247,10 +247,31 @@
     transform: scale(1.2);
 }
 
+/* Navigation Dots - Responsive */
 .dot.activeDot {
     width: 30px;
     border-radius: 5px;
     background-color: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+    .dotsContainer {
+        display: none !important;
+        /* Ẩn navigation dots trên mobile */
+    }
+}
+
+/* Hide Scrollbar Utility */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
 }
 
 /* Responsive */
