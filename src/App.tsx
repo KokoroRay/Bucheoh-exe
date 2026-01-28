@@ -45,7 +45,7 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Router>
+      <Router basename="/Bucheoh/">
         <MainLayout logoSrc={logoImage}>
           <Routes>
             <Route path="/" element={<HomePage />} />
