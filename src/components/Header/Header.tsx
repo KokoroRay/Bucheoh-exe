@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import styles from './Header.module.css';
 import { 
@@ -20,6 +20,7 @@ interface HeaderProps {
 
 export const Header = ({ logoSrc }: HeaderProps) => {
     const { t } = useLanguage();
+    const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -79,7 +80,12 @@ export const Header = ({ logoSrc }: HeaderProps) => {
     };
 
     const handleHomeClick = () => {
+        navigate('/');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleProductsClick = () => {
+        navigate('/', { state: { scrollToProducts: true } });
     };
 
     const navItems = [
@@ -94,7 +100,7 @@ export const Header = ({ logoSrc }: HeaderProps) => {
     return (
         <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
-                <div className={styles.logo}>
+                <div className={styles.logo} onClick={handleHomeClick} style={{ cursor: 'pointer' }}>
                     {logoSrc ? (
                         <img src={logoSrc} alt="BUCHAOH Logo" />
                     ) : (
@@ -109,10 +115,19 @@ export const Header = ({ logoSrc }: HeaderProps) => {
                     <ul className={styles.desktopNavList}>
                         {navItems.map((item) => {
                             const isHome = item.href === '/';
+                            const isProducts = item.href === '#products';
                             const isExternalLink = item.href.startsWith('#');
                             return (
                                 <li key={item.label}>
-                                    {isExternalLink ? (
+                                    {isProducts ? (
+                                        <button 
+                                            onClick={handleProductsClick}
+                                            className={styles.navLink}
+                                            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem 0' }}
+                                        >
+                                            {item.label}
+                                        </button>
+                                    ) : isExternalLink ? (
                                         <button 
                                             onClick={(e) => {
                                                 e.preventDefault();
@@ -169,10 +184,24 @@ export const Header = ({ logoSrc }: HeaderProps) => {
                     <ul className={styles.navList}>
                         {navItems.map((item) => {
                             const isHome = item.href === '/';
+                            const isProducts = item.href === '#products';
                             const isExternalLink = item.href.startsWith('#');
                             return (
                                 <li key={item.label}>
-                                    {isExternalLink ? (
+                                    {isProducts ? (
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleProductsClick();
+                                                setIsMenuOpen(false);
+                                            }}
+                                            className={styles.navLink}
+                                            style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%' }}
+                                        >
+                                            <item.icon className={styles.navIcon} />
+                                            <span className={styles.navText}>{item.label}</span>
+                                        </button>
+                                    ) : isExternalLink ? (
                                         <button
                                             onClick={(e) => {
                                                 e.preventDefault();

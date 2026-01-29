@@ -4,6 +4,7 @@ import { Hero, AboutSection, ProductGallery, BlogSection, LoadingSpinner, NotFou
 import { ContactPage, FAQPage, BlogPage } from './pages';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Import images from assets
 import logoImage from './assets/logos/fpt-logo.png';
@@ -12,14 +13,31 @@ import aboutImage1 from './assets/images/about/about-1.png';
 import aboutImage2 from './assets/images/about/about-2.png';
 
 // Homepage Component
-const HomePage = () => (
-  <>
-    <Hero imageSrc={heroImage} />
-    <AboutSection leftImageSrc={aboutImage1} bottomImageSrc={aboutImage2} />
-    <ProductGallery />
-    <BlogSection />
-  </>
-);
+const HomePage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll đến products section nếu được yêu cầu
+    if (location.state?.scrollToProducts) {
+      const timer = setTimeout(() => {
+        const productsElement = document.getElementById('products');
+        if (productsElement) {
+          productsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
+
+  return (
+    <>
+      <Hero imageSrc={heroImage} />
+      <AboutSection leftImageSrc={aboutImage1} bottomImageSrc={aboutImage2} />
+      <ProductGallery />
+      <BlogSection />
+    </>
+  );
+};
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
