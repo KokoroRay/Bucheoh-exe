@@ -48,6 +48,7 @@ const translations = {
         'about.fermentedDrink': 'Nước uống lên men',
         'about.bioFertilizer': 'Phân vi sinh từ bã',
         'about.circularDesc': 'Tận dụng toàn bộ vòng đời nguyên liệu, biến nông sản thô thành sản phẩm chăm sóc sức khỏe và tái tạo giá trị cho đất, cây trồng - không tạo chất thải.',
+            'about.exploreProcess': 'Khám Phá Quy Trình',
         
         // Products
         'products.title': 'SẢN PHẨM BUCHAOH',
@@ -269,6 +270,7 @@ const translations = {
         'about.fermentedDrink': 'Fermented drinks',
         'about.bioFertilizer': 'Bio-fertilizer from pulp',
         'about.circularDesc': 'Utilizing the entire lifecycle of materials, turning raw agricultural products into health care products and recreating value for soil and plants - creating no waste.',
+            'about.exploreProcess': 'Explore the Process',
         
         // Products
         'products.title': 'BUCHAOH PRODUCTS',

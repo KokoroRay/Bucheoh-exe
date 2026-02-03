@@ -30,12 +30,12 @@ const HomePage = () => {
   }, [location]);
 
   return (
-    <>
+    <div className="homePageFont">
       <Hero imageSrc={heroImage} />
       <AboutSection leftImageSrc={aboutImage1} bottomImageSrc={aboutImage2} />
       <ProductGallery />
       <BlogSection />
-    </>
+    </div>
   );
 };
 

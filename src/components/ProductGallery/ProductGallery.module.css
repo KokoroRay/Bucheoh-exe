@@ -69,7 +69,15 @@
 }
 
 .filterIcon {
-    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+}
+
+.filterIcon svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Carousel Styles */
@@ -163,9 +171,17 @@
 }
 
 .productIcon {
-    font-size: 4rem;
-    opacity: 0.7;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12));
+}
+
+.productIcon svg {
+    width: 64px;
+    height: 64px;
 }
 
 .typeTag {

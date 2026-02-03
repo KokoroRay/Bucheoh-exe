@@ -14,6 +14,35 @@ interface Product {
     type: 'drink' | 'fertilizer';
 }
 
+const AllIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 15.7 6.8 18l1-5.8L3.6 8.1l5.8-.8L12 2z" />
+        <circle cx="18.5" cy="5.5" r="1" fill="currentColor" />
+        <circle cx="5.5" cy="18.5" r="1" fill="currentColor" />
+    </svg>
+);
+
+const DrinkIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" />
+        <line x1="10" y1="1" x2="10" y2="4" />
+        <line x1="14" y1="1" x2="14" y2="4" />
+    </svg>
+);
+
+const FertilizerIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 21c5 0 9-4 9-9H3c0 5 4 9 9 9z" />
+        <path d="M12 3v3" />
+        <path d="M7 12c0-3 2-5 5-5s5 2 5 5" />
+        <circle cx="8" cy="12" r="1" fill="currentColor" />
+        <circle cx="12" cy="12" r="1" fill="currentColor" />
+        <circle cx="16" cy="12" r="1" fill="currentColor" />
+    </svg>
+);
+
 export const ProductGallery = () => {
     const { t } = useLanguage();
     const navigate = useNavigate();
@@ -131,21 +160,21 @@ export const ProductGallery = () => {
                         className={`${styles.filterTab} ${activeFilter === 'all' ? styles.active : ''}`}
                         onClick={() => handleFilterChange('all')}
                     >
-                        <span className={styles.filterIcon}>🌟</span>
+                        <span className={styles.filterIcon}><AllIcon /></span>
                         {t('products.all')}
                     </button>
                     <button 
                         className={`${styles.filterTab} ${activeFilter === 'drink' ? styles.active : ''}`}
                         onClick={() => handleFilterChange('drink')}
                     >
-                        <span className={styles.filterIcon}>🥤</span>
+                        <span className={styles.filterIcon}><DrinkIcon /></span>
                         {t('products.drinks')}
                     </button>
                     <button 
                         className={`${styles.filterTab} ${activeFilter === 'fertilizer' ? styles.active : ''}`}
                         onClick={() => handleFilterChange('fertilizer')}
                     >
-                        <span className={styles.filterIcon}>🌱</span>
+                        <span className={styles.filterIcon}><FertilizerIcon /></span>
                         {t('products.fertilizers')}
                     </button>
                 </div>
@@ -169,7 +198,7 @@ export const ProductGallery = () => {
                                     <div className={styles.productImage}>
                                         <div className={styles.imagePlaceholder}>
                                             <span className={styles.productIcon}>
-                                                {product.type === 'drink' ? '🥤' : '🌱'}
+                                                {product.type === 'drink' ? <DrinkIcon /> : <FertilizerIcon />}
                                             </span>
                                         </div>
                                         <div className={styles.typeTag}>

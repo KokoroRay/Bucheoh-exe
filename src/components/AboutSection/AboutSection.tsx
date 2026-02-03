@@ -167,7 +167,7 @@ export const AboutSection = ({
                         </div>
 
                         <div className={styles.ctaSection}>
-                            <button className={styles.ctaButton}>Khám Phá Quy Trình</button>
+                            <button className={styles.ctaButton}>{t('about.exploreProcess')}</button>
                         </div>
 
                         {bottomImageSrc && (

@@ -58,7 +58,7 @@ export const Footer = () => {
                     <div className={styles.socialSection}>
                         <h4 className={styles.sectionTitle}>{t('footer.followUs')}</h4>
                         <div className={styles.socialLinks}>
-                            <a href="#" className={styles.socialLink} aria-label="Facebook">
+                            <a href="https://www.facebook.com/share/1AEXvfrQcV/?mibextid=wwXIfr" className={styles.socialLink} aria-label="Facebook">
                                 <span className={styles.socialIcon}><FaFacebookF /></span>
                             </a>
                             <a href="#" className={styles.socialLink} aria-label="Instagram">
